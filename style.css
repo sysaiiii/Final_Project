@@ -19,6 +19,7 @@ html {
   max-width: 80%;
   margin: auto;
   position: relative;
+  width: 100%;  /* Make container full width */
 }
 
 a {
@@ -95,6 +96,11 @@ header .navbar span {
   display: none;
 }
 
+/* Add the viewport meta tag for responsiveness */
+meta[name="viewport"] {
+  content: "width=device-width, initial-scale=1.0";
+}
+
 @media only screen and (max-width:768px) {
   header nav ul {
     position: absolute;
@@ -123,10 +129,64 @@ header .navbar span {
     display: block;
     cursor: pointer;
   }
+
+  .container {
+    width: 90%;
+  }
+
+  .home .left, .home .right {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .img1 {
+    width: 100%;  /* Scale the image */
+    height: auto;
+  }
 }
 
-/*----------header--------*/
-/*----------home--------*/
+@media only screen and (max-width:514px) {
+  .right,
+  .left {
+    width: 100%;
+  }
+
+  .home {
+    flex-direction: column-reverse;
+  }
+
+  .home .left,
+  .home .right {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .about .grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer .left {
+    width: 100%;
+  }
+
+  footer .right {
+    width: 100%;
+  }
+
+  footer .left .input {
+    width: 85%;
+  }
+
+  footer .left input {
+    width: 100%;
+  }
+
+  footer .left .arrow {
+    width: 15%;
+  }
+}
+
+/* Home */
 .flex {
   display: flex;
   flex-direction: row;
@@ -150,25 +210,30 @@ button {
   transition: 0.5s;
   cursor: pointer;
 }
-.home-button{
+
+.home-button {
   color: white;
 }
-.home-button:hover{
- color: #0e6c66;
+
+.home-button:hover {
+  color: #0e6c66;
 }
+
 button:hover {
   border: 1px solid #0e6c66;
   background: none;
   color: #0e6c66;
 }
+
 .img1 {
-  width: 400px;     /* wider for oval shape */
-  height: 400px;    /* shorter height */
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid white; /* optional: adds border */
-  margin-top: -30px;  /* slightly move the image upwards */
+  border: 2px solid white;
+  margin-top: -30px;
 }
+
 .home {
   margin-top: 50px;
   place-items: center;
@@ -190,8 +255,7 @@ button:hover {
   height: auto;
 }
 
-/*----------home--------*/
-/*----------about--------*/
+/* About Section */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -203,12 +267,13 @@ button:hover {
   text-align: center;
   margin-top: 100px;
 }
-.profile{
-  width: 390px;   
-  height: 500px;   
+
+.profile {
+  width: 390px;
+  height: 500px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid white; /* optional: adds border */
+  border: 2px solid white;
   margin-top: 20px;
 }
 
@@ -257,8 +322,7 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/*----------about--------*/
-/*----------gallery--------*/
+/* Gallery Section */
 .gallery {
   text-align: center;
   margin-top: 100px;
@@ -311,20 +375,19 @@ input[type="radio"] {
   padding: 40px 0;
 }
 
-
 .pic {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   transition: transform 0.8s ease, box-shadow 0.8s ease;
-  height: 300px; 
+  height: 300px;
 }
 
 .pic img {
   width: 100%;
-  height: 100%; 
-  object-fit: cover; 
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.8s ease;
 }
 
@@ -334,7 +397,7 @@ input[type="radio"] {
   inset: 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
   opacity: 0;
-  transition: opacity 0.8s ease-in-out; 
+  transition: opacity 0.8s ease-in-out;
   z-index: 1;
 }
 
@@ -350,6 +413,7 @@ input[type="radio"] {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
+
 label {
   font-size: 16px;
   color: black;
@@ -357,30 +421,20 @@ label {
 }
 
 label:hover {
-  color: white; 
-  transform: scale(1.1); 
+  color: white;
+  transform: scale(1.1);
 }
 
 #check1:checked ~ .gallery .photo-gallery .pic {
   display: block;
 }
-#check2:checked ~ .gallery .photo-gallery .tattoo,
-#check3:checked ~ .gallery .photo-gallery .piercing,
+#check2:checked ~ .gallery .photo-gallery .piercing,
+#check3:checked ~ .gallery .photo-gallery .tattoo,
 #check4:checked ~ .gallery .photo-gallery .design {
   display: block;
 }
-#check2:checked ~ .gallery .photo-gallery .piercing,
-#check2:checked ~ .gallery .photo-gallery .design,
-#check3:checked ~ .gallery .photo-gallery .tattoo,
-#check3:checked ~ .gallery .photo-gallery .design,
-#check4:checked ~ .gallery .photo-gallery .tattoo,
-#check4:checked ~ .gallery .photo-gallery .piercing {
-  display: none;
-}
 
-
-/*----------gallery--------*/
-/*----------customer--------*/
+/*---------- Testimonial Section ----------*/
 .customer {
   padding: 40px 0;
   background-color: #f8f8f8;
@@ -392,7 +446,7 @@ label:hover {
   padding: 0 20px;
 }
 
-.what{
+.what {
   text-align: center;
   font-size: 2rem;
   color: #333;
@@ -446,21 +500,27 @@ label:hover {
   font-size: 0.9rem;
   color: #777;
 }
-/*----------customer--------*/
-/*----------footer--------*/
+
+/* Responsive for smaller screens */
+@media only screen and (max-width: 768px) {
+  .items {
+    grid-template-columns: 1fr; /* Stacking the items vertically */
+  }
+}
+
+/*---------- Footer ----------*/
 footer {
   margin-top: 100px;
   background: #212121;
   color: white;
+  padding: 40px 0;
 }
 
 footer .left {
-  margin-top: 70px;
   width: 70%;
 }
 
 footer .right {
-  margin-top: 70px;
   width: 30%;
 }
 
@@ -534,132 +594,19 @@ footer iframe {
   color: #0e6c66;
 }
 
-/*----------footer--------*/
-@media only screen and (max-width:768px) {
-  header {
-    height: auto;
+/* Responsive for smaller screens */
+@media only screen and (max-width: 768px) {
+  footer .left, footer .right {
+    width: 100%; /* Stack the sections on smaller screens */
   }
 
-  .dots {
-    margin-bottom: 20px;
-  }
-
-  .home .right img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .about img {
-    margin-top: 70px;
-  }
-
-  footer .right i {
-    margin-bottom: 20px;
-  }
-
-  footer .grid,
-  .customer .grid {
-    grid-template-columns: repeat(1, 1fr);
+  footer .grid {
+    grid-template-columns: repeat(1, 1fr); /* Stack the footer links vertically */
   }
 }
 
-@media only screen and (max-width:514px) {
-
-  .right,
-  .left {
-    width: 100%;
-  }
-
-  .home {
-    flex-direction: column;
-  }
-
-  .home {
-    flex-direction: column-reverse;
-  }
-
-  .dots {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .about .grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .content {
-    flex-direction: column;
-  }
-
-  footer .left {
-    width: 100%;
-  }
-
-  footer .right {
-    width: 100%;
-  }
-
+@media only screen and (max-width: 514px) {
   footer .left .input {
     width: 85%;
   }
-
-  footer .left input {
-    width: 100%;
-  }
-
-  footer .left .arrow {
-    width: 15%;
-  }
-}
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-.footer{
-  width: 50%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-label {
-  font-size: 16px;
-  color: #555;
-}
-
-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-textarea:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-
-input[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-input[type="submit"]:hover {
-  background-color: #0056b3;
 }
